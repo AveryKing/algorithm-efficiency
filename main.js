@@ -13,7 +13,7 @@ function sumIntegers(n) {
   }
 
   const NUMBER_OF_REPETITIONS = 10; 
-  const N = 10000;
+  const N = 1000000;
   let sumOfRunningTime = 0n;
   
   for (let k = 1; k <= NUMBER_OF_REPETITIONS; k++) {
