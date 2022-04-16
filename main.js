@@ -6,8 +6,19 @@ function sumIntegers(n) {
     return sum;
   }
 
-const N = 100; 
-const start = process.hrtime.bigint();
-const answer = sumIntegers(N); 
-const end = process.hrtime.bigint(); 
-console.log(`Summing ${N} numbers took ${end - start} nanoseconds`);
+  const NUMBER_OF_REPETITIONS = 10; 
+  const N = 100;
+  let sumOfRunningTime = 0n;
+  
+  for (let k = 1; k <= NUMBER_OF_REPETITIONS; k++) {
+    const start = process.hrtime.bigint();
+    const answer = sumIntegers(N);
+    const end = process.hrtime.bigint();
+    sumOfRunningTime += end - start;
+  }
+  
+  const averageTime = sumOfRunningTime / BigInt(NUMBER_OF_REPETITIONS);
+  
+  console.log(
+    `Summing ${N} numbers took an average of  ${averageTime} nanoseconds`
+  );
